@@ -1,0 +1,622 @@
+# Keap\Core\V2\AutomationApi
+
+All URIs are relative to https://api.keap.com/crm, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**achieveGoal()**](AutomationApi.md#achieveGoal) | **POST** /rest/v2/automations/goals/achieve | Achieve an Automation Goal |
+| [**addContactsToAutomationSequence()**](AutomationApi.md#addContactsToAutomationSequence) | **POST** /rest/v2/automations/{automation_id}/sequences/{sequence_id}:addContacts | Add Contacts to an Automation Sequence |
+| [**bulkAssignmentAutomationsCategories()**](AutomationApi.md#bulkAssignmentAutomationsCategories) | **POST** /rest/v2/automations/categories/batchAssign | Bulk update for Automations Categories |
+| [**bulkUnpublishAutomations()**](AutomationApi.md#bulkUnpublishAutomations) | **POST** /rest/v2/automations/batch-unpublish | Bulk unpublish Automations |
+| [**deleteAutomation()**](AutomationApi.md#deleteAutomation) | **DELETE** /rest/v2/automations | Delete an Automation |
+| [**getAutomation()**](AutomationApi.md#getAutomation) | **GET** /rest/v2/automations/{automation_id} | Retrieve an Automation |
+| [**listAllAutomationIds()**](AutomationApi.md#listAllAutomationIds) | **GET** /rest/v2/automations/ids | List Automations Ids |
+| [**listAutomations()**](AutomationApi.md#listAutomations) | **GET** /rest/v2/automations | List Automations |
+| [**renameAutomationV2()**](AutomationApi.md#renameAutomationV2) | **PATCH** /rest/v2/easy-automations/{automation_id} | Renames an Easy Automation. |
+| [**unpublishAutomation()**](AutomationApi.md#unpublishAutomation) | **PUT** /rest/v2/automations/{automation_id}/unpublish | Unpublish an Automation |
+
+
+## `achieveGoal()`
+
+```php
+achieveGoal($achieve_goal_request): \Keap\Core\V2\Model\AchieveGoalResponse
+```
+
+Achieve an Automation Goal
+
+Achieves a goal in an automation for a contact
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$achieve_goal_request = new \Keap\Core\V2\Model\AchieveGoalRequest(); // \Keap\Core\V2\Model\AchieveGoalRequest
+
+try {
+    $result = $apiInstance->achieveGoal($achieve_goal_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->achieveGoal: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **achieve_goal_request** | [**\Keap\Core\V2\Model\AchieveGoalRequest**](../Model/AchieveGoalRequest.md)|  | |
+
+### Return type
+
+[**\Keap\Core\V2\Model\AchieveGoalResponse**](../Model/AchieveGoalResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `addContactsToAutomationSequence()`
+
+```php
+addContactsToAutomationSequence($automation_id, $sequence_id, $add_to_automation_sequence_request): \Keap\Core\V2\Model\AddToAutomationSequenceResponse
+```
+
+Add Contacts to an Automation Sequence
+
+Adds a list of contacts to an automation sequence Response contains a map of the provided list of Contact Ids and their individual result.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$automation_id = 'automation_id_example'; // string
+$sequence_id = 'sequence_id_example'; // string
+$add_to_automation_sequence_request = new \Keap\Core\V2\Model\AddToAutomationSequenceRequest(); // \Keap\Core\V2\Model\AddToAutomationSequenceRequest
+
+try {
+    $result = $apiInstance->addContactsToAutomationSequence($automation_id, $sequence_id, $add_to_automation_sequence_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->addContactsToAutomationSequence: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_id** | **string**|  | |
+| **sequence_id** | **string**|  | |
+| **add_to_automation_sequence_request** | [**\Keap\Core\V2\Model\AddToAutomationSequenceRequest**](../Model/AddToAutomationSequenceRequest.md)|  | |
+
+### Return type
+
+[**\Keap\Core\V2\Model\AddToAutomationSequenceResponse**](../Model/AddToAutomationSequenceResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `bulkAssignmentAutomationsCategories()`
+
+```php
+bulkAssignmentAutomationsCategories($assign_automation_category_request)
+```
+
+Bulk update for Automations Categories
+
+Bulk updates the categories of one or more automations
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$assign_automation_category_request = new \Keap\Core\V2\Model\AssignAutomationCategoryRequest(); // \Keap\Core\V2\Model\AssignAutomationCategoryRequest
+
+try {
+    $apiInstance->bulkAssignmentAutomationsCategories($assign_automation_category_request);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->bulkAssignmentAutomationsCategories: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **assign_automation_category_request** | [**\Keap\Core\V2\Model\AssignAutomationCategoryRequest**](../Model/AssignAutomationCategoryRequest.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `bulkUnpublishAutomations()`
+
+```php
+bulkUnpublishAutomations($batch_unpublish_automation_request)
+```
+
+Bulk unpublish Automations
+
+Bulk unpublish one or more automations
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$batch_unpublish_automation_request = new \Keap\Core\V2\Model\BatchUnpublishAutomationRequest(); // \Keap\Core\V2\Model\BatchUnpublishAutomationRequest
+
+try {
+    $apiInstance->bulkUnpublishAutomations($batch_unpublish_automation_request);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->bulkUnpublishAutomations: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **batch_unpublish_automation_request** | [**\Keap\Core\V2\Model\BatchUnpublishAutomationRequest**](../Model/BatchUnpublishAutomationRequest.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteAutomation()`
+
+```php
+deleteAutomation($automation_ids)
+```
+
+Delete an Automation
+
+Deletes a single automation
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$automation_ids = array(56); // int[]
+
+try {
+    $apiInstance->deleteAutomation($automation_ids);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->deleteAutomation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_ids** | [**int[]**](../Model/int.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAutomation()`
+
+```php
+getAutomation($automation_id): \Keap\Core\V2\Model\Automation
+```
+
+Retrieve an Automation
+
+Retrieves a single automation
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$automation_id = 'automation_id_example'; // string
+
+try {
+    $result = $apiInstance->getAutomation($automation_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->getAutomation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_id** | **string**|  | |
+
+### Return type
+
+[**\Keap\Core\V2\Model\Automation**](../Model/Automation.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listAllAutomationIds()`
+
+```php
+listAllAutomationIds($filter, $order_by, $page_size, $page_token): \Keap\Core\V2\Model\ListAutomationIdsResponse
+```
+
+List Automations Ids
+
+Retrieves a list of automations IDs
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$filter = 'filter_example'; // string | Filter to apply, allowed fields are:  - `name` (String): Filter by automation name. Supports the `==` operator with optional prefix wildcard (`foo*`).   Without a wildcard, the search matches automations whose name contains the given text.   With a prefix wildcard, it matches automations whose name starts with the given text.   - `filter=name%3D%3DSpring Automation` — names containing \"Spring Automation\"   - `filter=name%3D%3DSpring*` — names starting with \"Spring\"  - `id` (Long): Filter by automation ID. Supports comparison operators:   `==` `!=` `>` `<` `>=` `<=`   - `filter=id%3E5` — id > 5   - `filter=id%3E%3D10` — id >= 10  - `status` (String): Filter by automation status. Accepted values: `published`, `draft`.   - `filter=status%3D%3Dpublished` — published automations only   - `filter=status%3D%3Ddraft` — draft automations only  - `categories` (String): Filter by category ID (comma-separated list of IDs).   - `filter=categories%3D%3D1` — automations in category 1   - `filter=categories%3D%3D1,2,3` — automations in categories 1, 2, or 3  Multiple filters can be combined with `;` (AND logic): - `filter=name%3D%3DSpring*%3Bautomation_id%3E5`
+$order_by = 'order_by_example'; // string | Attribute and direction to order items. One of the following fields: - `name` - `category` - `activeContacts` - `publishedDate`  One of the following directions: - `asc` - `desc`
+$page_size = 0; // int | Total number of items to return per page
+$page_token = 'page_token_example'; // string | Page token
+
+try {
+    $result = $apiInstance->listAllAutomationIds($filter, $order_by, $page_size, $page_token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->listAllAutomationIds: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **filter** | **string**| Filter to apply, allowed fields are:  - &#x60;name&#x60; (String): Filter by automation name. Supports the &#x60;&#x3D;&#x3D;&#x60; operator with optional prefix wildcard (&#x60;foo*&#x60;).   Without a wildcard, the search matches automations whose name contains the given text.   With a prefix wildcard, it matches automations whose name starts with the given text.   - &#x60;filter&#x3D;name%3D%3DSpring Automation&#x60; — names containing \&quot;Spring Automation\&quot;   - &#x60;filter&#x3D;name%3D%3DSpring*&#x60; — names starting with \&quot;Spring\&quot;  - &#x60;id&#x60; (Long): Filter by automation ID. Supports comparison operators:   &#x60;&#x3D;&#x3D;&#x60; &#x60;!&#x3D;&#x60; &#x60;&gt;&#x60; &#x60;&lt;&#x60; &#x60;&gt;&#x3D;&#x60; &#x60;&lt;&#x3D;&#x60;   - &#x60;filter&#x3D;id%3E5&#x60; — id &gt; 5   - &#x60;filter&#x3D;id%3E%3D10&#x60; — id &gt;&#x3D; 10  - &#x60;status&#x60; (String): Filter by automation status. Accepted values: &#x60;published&#x60;, &#x60;draft&#x60;.   - &#x60;filter&#x3D;status%3D%3Dpublished&#x60; — published automations only   - &#x60;filter&#x3D;status%3D%3Ddraft&#x60; — draft automations only  - &#x60;categories&#x60; (String): Filter by category ID (comma-separated list of IDs).   - &#x60;filter&#x3D;categories%3D%3D1&#x60; — automations in category 1   - &#x60;filter&#x3D;categories%3D%3D1,2,3&#x60; — automations in categories 1, 2, or 3  Multiple filters can be combined with &#x60;;&#x60; (AND logic): - &#x60;filter&#x3D;name%3D%3DSpring*%3Bautomation_id%3E5&#x60; | [optional] |
+| **order_by** | **string**| Attribute and direction to order items. One of the following fields: - &#x60;name&#x60; - &#x60;category&#x60; - &#x60;activeContacts&#x60; - &#x60;publishedDate&#x60;  One of the following directions: - &#x60;asc&#x60; - &#x60;desc&#x60; | [optional] |
+| **page_size** | **int**| Total number of items to return per page | [optional] |
+| **page_token** | **string**| Page token | [optional] |
+
+### Return type
+
+[**\Keap\Core\V2\Model\ListAutomationIdsResponse**](../Model/ListAutomationIdsResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listAutomations()`
+
+```php
+listAutomations($filter, $order_by, $page_size, $page_token): \Keap\Core\V2\Model\ListAutomationResponse
+```
+
+List Automations
+
+Retrieves a list of automations
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$filter = 'filter_example'; // string | Filter to apply, allowed fields are:  - `name` (String): Filter by automation name. Supports the `==` operator with optional prefix wildcard (`foo*`).   Without a wildcard, the search matches automations whose name contains the given text.   With a prefix wildcard, it matches automations whose name starts with the given text.   - `filter=name%3D%3DSpring Automation` — names containing \"Spring Automation\"   - `filter=name%3D%3DSpring*` — names starting with \"Spring\"  - `id` (Long): Filter by automation ID. Supports comparison operators:   `==` `!=` `>` `<` `>=` `<=`   - `filter=id%3E5` — id > 5   - `filter=id%3E%3D10` — id >= 10  - `status` (String): Filter by automation status. Accepted values: `published`, `draft`.   - `filter=status%3D%3Dpublished` — published automations only   - `filter=status%3D%3Ddraft` — draft automations only  - `categories` (String): Filter by category ID (comma-separated list of IDs).   - `filter=categories%3D%3D1` — automations in category 1   - `filter=categories%3D%3D1,2,3` — automations in categories 1, 2, or 3  Multiple filters can be combined with `;` (AND logic): - `filter=name%3D%3DSpring*%3Bautomation_id%3E5`
+$order_by = 'order_by_example'; // string | Attribute and direction to order items. One of the following fields: - `name` - `category` - `activeContacts` - `publishedDate`  One of the following directions: - `asc` - `desc`
+$page_size = 0; // int | Total number of items to return per page
+$page_token = 'page_token_example'; // string | Page token
+
+try {
+    $result = $apiInstance->listAutomations($filter, $order_by, $page_size, $page_token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->listAutomations: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **filter** | **string**| Filter to apply, allowed fields are:  - &#x60;name&#x60; (String): Filter by automation name. Supports the &#x60;&#x3D;&#x3D;&#x60; operator with optional prefix wildcard (&#x60;foo*&#x60;).   Without a wildcard, the search matches automations whose name contains the given text.   With a prefix wildcard, it matches automations whose name starts with the given text.   - &#x60;filter&#x3D;name%3D%3DSpring Automation&#x60; — names containing \&quot;Spring Automation\&quot;   - &#x60;filter&#x3D;name%3D%3DSpring*&#x60; — names starting with \&quot;Spring\&quot;  - &#x60;id&#x60; (Long): Filter by automation ID. Supports comparison operators:   &#x60;&#x3D;&#x3D;&#x60; &#x60;!&#x3D;&#x60; &#x60;&gt;&#x60; &#x60;&lt;&#x60; &#x60;&gt;&#x3D;&#x60; &#x60;&lt;&#x3D;&#x60;   - &#x60;filter&#x3D;id%3E5&#x60; — id &gt; 5   - &#x60;filter&#x3D;id%3E%3D10&#x60; — id &gt;&#x3D; 10  - &#x60;status&#x60; (String): Filter by automation status. Accepted values: &#x60;published&#x60;, &#x60;draft&#x60;.   - &#x60;filter&#x3D;status%3D%3Dpublished&#x60; — published automations only   - &#x60;filter&#x3D;status%3D%3Ddraft&#x60; — draft automations only  - &#x60;categories&#x60; (String): Filter by category ID (comma-separated list of IDs).   - &#x60;filter&#x3D;categories%3D%3D1&#x60; — automations in category 1   - &#x60;filter&#x3D;categories%3D%3D1,2,3&#x60; — automations in categories 1, 2, or 3  Multiple filters can be combined with &#x60;;&#x60; (AND logic): - &#x60;filter&#x3D;name%3D%3DSpring*%3Bautomation_id%3E5&#x60; | [optional] |
+| **order_by** | **string**| Attribute and direction to order items. One of the following fields: - &#x60;name&#x60; - &#x60;category&#x60; - &#x60;activeContacts&#x60; - &#x60;publishedDate&#x60;  One of the following directions: - &#x60;asc&#x60; - &#x60;desc&#x60; | [optional] |
+| **page_size** | **int**| Total number of items to return per page | [optional] |
+| **page_token** | **string**| Page token | [optional] |
+
+### Return type
+
+[**\Keap\Core\V2\Model\ListAutomationResponse**](../Model/ListAutomationResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `renameAutomationV2()`
+
+```php
+renameAutomationV2($automation_id, $rename_easy_automation_command)
+```
+
+Renames an Easy Automation.
+
+Updates the name of a single easy automation.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$automation_id = HWv0fbDNDbWg6cFKY027; // string | automation_id
+$rename_easy_automation_command = new \Keap\Core\V2\Model\RenameEasyAutomationCommand(); // \Keap\Core\V2\Model\RenameEasyAutomationCommand
+
+try {
+    $apiInstance->renameAutomationV2($automation_id, $rename_easy_automation_command);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->renameAutomationV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_id** | **string**| automation_id | |
+| **rename_easy_automation_command** | [**\Keap\Core\V2\Model\RenameEasyAutomationCommand**](../Model/RenameEasyAutomationCommand.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `unpublishAutomation()`
+
+```php
+unpublishAutomation($automation_id, $unpublish_automation_request)
+```
+
+Unpublish an Automation
+
+Unpublishes a single automation
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = Keap\Core\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Keap\Core\V2\Api\AutomationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$automation_id = 'automation_id_example'; // string
+$unpublish_automation_request = new \Keap\Core\V2\Model\UnpublishAutomationRequest(); // \Keap\Core\V2\Model\UnpublishAutomationRequest
+
+try {
+    $apiInstance->unpublishAutomation($automation_id, $unpublish_automation_request);
+} catch (Exception $e) {
+    echo 'Exception when calling AutomationApi->unpublishAutomation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **automation_id** | **string**|  | |
+| **unpublish_automation_request** | [**\Keap\Core\V2\Model\UnpublishAutomationRequest**](../Model/UnpublishAutomationRequest.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
